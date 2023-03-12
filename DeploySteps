@@ -1,0 +1,19 @@
+To deploy Java Application into tomcat
+--------------------------------------
+1. Clone the java project into some directory using below command -
+	cd /tmp
+	git clone https://github.com/jsmounika/java-web-app-docker.git
+2. Go inside java-web-app-docker -
+	cd java-web-app-docker
+3. Run below command to generate package file (jar/tar/war files) -
+ 	mvn clean install
+4. It will create one target directory inside java-web-app-docker. Inside that target, you can see java-web-app-1.0.war file created.
+	ls
+	cd target
+5. Copy that java-web-app-1.0.war file into apache-tomcat-9.0.73/webapps. (Whatever we place/deploy inside webapps will be run in tomcat server). Run below command to copy war file - 
+	cp /tmp/projects/java-web-app-docker/target/java-web-app-1.0.war /usr/local/apache-tomcat-9.0.73/webapps/
+	   -------------------Source path------------------------------  -----------Destination path-------------
+6. Now start the tomcat server and check the application output in browser by using server public IPv4 address and port number of tomcat.
+	Ex: 3.210.204.123:8080/
+	   --Ip address-- -Port Number--
+7. Click on Manager app to see the applications deployed over there. Provide the credentials you have mentioned in tomcat-users.xml file. Then click on your application.
